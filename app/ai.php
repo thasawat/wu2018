@@ -18,15 +18,34 @@ class AI
      */
     public static function getGender($text)
     {
-        return 'Male';
-    }
+        if (strpos($text, "ครับ") !== false) {
+            return 'Male';
+        }elseif  (strpos($text, "ค่ะ") !== false) {
+            return 'Female';
+        }elseif  (strpos($text, "คะ") !== false) {
+            return 'Female';
+        }else {
+            return 'Unknown';
+        }
+        
+    } 
 
     /**
      * @return string 'Positive' or 'Neutral' or 'Negative'
      */
     public static function getSentiment($text)
     {
-        return 'Neutral';
+        if (strpos($text,"น่ารัก")!== false){
+            return 'Positive';
+        }elseif (strpos($text,"บ้า")!== false){
+            return 'Negative';
+        }elseif (strpos($text,"เหี้ย")!== false){
+            return 'Negative';
+        }else{
+            return 'Neutral';
+        }
+        
+       
     }
 
     /**
@@ -34,7 +53,16 @@ class AI
      */
     public static function getRudeWords($text)
     {
-        return ['แสส'];
+        if (strpos($text,"สัส")!== false){
+            return ['สัส'];
+        }elseif (strpos($text,"เหี้ย")!== false){
+            return ['เหี้ย'];
+        }elseif (strpos($text,"เวร")!== false){
+            return ['เวร'];
+        }else{
+            return ['   '];
+        }
+        
     }
 
     /**
@@ -42,6 +70,10 @@ class AI
      */
     public static function getLanguages($text)
     {
-        return ['TH', 'EN'];
+        if (!preg_match('/[^A-Za-z0-9]/', $text)){
+            return ['EN'];
+            }
+            
+        return ['TH'];
     }
 }
