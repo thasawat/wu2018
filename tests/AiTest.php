@@ -29,4 +29,16 @@ final class AITest extends TestCase
         $expected_result = 'Positive';
         $this->assertEquals($expected_result, $result);
     }
+    public function testSentiment_Negative(): void
+    {
+        $result = AI::getSentiment('บ้า');
+        $expected_result = 'Negative';
+        $this->assertEquals($expected_result, $result);
+    }
+    public function testSentiment_Negative(): void
+    {
+        $result = AI::getSentiment('เหี้ย');
+        $expected_result = 'Negative';
+        $this->assertEquals($expected_result, $result);
+    }
 }
