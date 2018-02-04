@@ -47,4 +47,16 @@ final class AITest extends TestCase
         $expected_result =  ['สัส'];
         $this->assertEquals($expected_result, $result);
     }
+    public function testRudeWords1(): void
+    {
+        $result = AI::getRudeWords('เหี้ย');
+        $expected_result =  ['เหี้ย'];
+        $this->assertEquals($expected_result, $result);
+    }
+    public function testRudeWords2(): void
+    {
+        $result = AI::getRudeWords('เวร');
+        $expected_result =  ['เวร'];
+        $this->assertEquals($expected_result, $result);
+    }
 }
